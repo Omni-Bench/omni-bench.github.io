@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Evaluating mathematical reasoning of foundation models in visual contexts">
+  <meta name="keywords" content="MathVista, Math Vista">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> OmniBench</title>
+
+  <link rel="icon" href="./static/images/icon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <img src="static/images/icon.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista" style="vertical-align: middle">
+              <a style="color:#ff1010;">O</a><a style="color:#ffb805;">m</a><a style="color:#d1f006;">n</a><a style="color:#04bd26;">i</a><a style="color:#057af8;">Bench</a>
+            </span>
+            </h1>
+          <h2 class="subtitle is-3 publication-subtitle" style="font-size: 26px;">
+            A Scalable Multi-Dimensional Benchmark of Essential Virtual Agent Capabilities
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <!-- <span class="author-block">Anonymous</span> -->
+
+           <span class="author-block">
+            <a href="None">Wendong Bu</a><sup style="color:#6fbf73;">1</sup><sup>*</sup>,</span>
+           <span class="author-block">
+             <a href="None">Yang Wu</a><sup style="color:#ac33ff;">2</sup><sup>*</sup>,</span>
+           <span class="author-block">
+             <a href="None">Qifan Yu</a><sup style="color:#6fbf73;">1</sup><sup>*</sup>,</span>
+           <span class="author-block">
+             <a href="None">Minghe Gao</a><sup style="color:#6fbf73;">1</sup>,</span>
+           <span class="author-block">
+             <a href="None">Bingchen Miao</a><sup style="color:#6fbf73;">1</sup>,</span> 
+           <span class="author-block">
+            <a href="None">Zhenkui Zhang</a><sup style="color:#6fbf73;">1</sup>,</span><br>
+          <span class="author-block">
+            <a href="None">Kaihang Pan</a><sup style="color:#6fbf73;">1</sup>,</span>
+          <span class="author-block">
+            <a href="None">Yunfei Li</a><sup style="color:#d79bff;">2</sup>,</span>
+          <span class="author-block">
+            <a href="None">Mengze Li</a><sup style="color:#0335ff;">3</sup>,</span>
+          <span class="author-block">
+            <a href="None">Wei Ji</a><sup style="color:#ffac33;">4</sup>,</span>
+          <span class="author-block">
+            <a href="None">Juncheng Li</a><sup style="color:#6fbf73;">1</sup><sup style="font-family: 'Times New Roman';">†</sup>,</span>
+          <span class="author-block">
+            <a href="None">Siliang Tang</a><sup style="color:#6fbf73;">1</sup>,</span>
+          <span class="author-block">
+            <a href="None">Yueting Zhuang</a><sup style="color:#6fbf73;">1</sup></span>
+          </div>
+         <div class="is-size-5 publication-authors">
+           <span class="author-block"><sup style="color:#6fbf73;">1</sup>Zhejiang University,</span>
+           <span class="author-block"><sup style="color:#d79bff">2</sup>Ant Group,</span>
+           <span class="author-block"><sup style="color:#0335ff">3</sup>The Hong Kong University of Science and Technology,</span>
+           <span class="author-block"><sup style="color:#ffac33">4</sup>Nanjing University</span><br>
+           <span class="author-block"><sup>*</sup>Equal Contribution, <sup style="font-family: 'Times New Roman';">†</sup>Corresponding Author</span><br>
+           <span class="paper-block"><b style="color:#f41c1c">ICML 2025 Spotlight</b> </span>
+        </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://github.com/wendell0218/OmniBench_paper/blob/main/OmniBench.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/DCDmllm/OmniBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/Bin1117/OmniBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>OmniBench</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/WeiChow/AnySD"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>OmniBench-36K</span>
+                </a>
+              </span>
+              <!-- Leaderboard Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1V-Z4agWoTMzAYkRJQ1BNz0-i79eAVWt4/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>
+              <!-- Eval.AI Link -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="margin-bottom: 1vh;">
+    <!-- Abstract. -->
+    <!-- <div class="content has-text-centered">
+      <img src="static/images/teaser.png" alt="algebraic reasoning" width="80%"/>
+      <p>
+        Examples of <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+        <span class="mathvista">OmniBench</span> at scale. We comprehensively categorize image editing tasks into 5 groups based on different editing capabilities:
+        (a) <b>Local Editing</b> which focuses on region-based editing (<span style="color: green;">green area</span>);
+        (b) <b>Global Editing</b> which focuses on the full range of image rendering (<span style="color: yellow;">yellow area</span>);
+        (c) <b>Camera Move Editing</b> which focuses on viewpoints changing instead of scenes (<span style="color: gray;">gray area</span>);
+        (d) <b>Implicit Editing</b> which requires commonsense knowledge to complete complex editing (<span style="color: orange;">orange area</span>);
+        (e) <b>Visual Editing</b> which encompasses additional visual inputs, addressing the requirements for multi-modal editing (<span style="color: blue;">blue area</span>).
+      </p>
+      <br>
+    </div> -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            As multimodal large language models (MLLMs) advance, MLLM-based virtual agents have demonstrated remarkable performance. However, existing benchmarks face significant limitations, including uncontrollable task complexity, extensive manual annotation with limited scenarios, and a lack of multidimensional evaluation. 
+          </p>
+          <p>
+            In response to these challenges, we introduce <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">OmniBench</span>, a self-generating, graph-based benchmark with an <b>automated</b> pipeline for synthesizing tasks of <b>controllable</b> complexity through subtask composition.
+          </p>
+          <p>
+            To evaluate the diverse capabilities of virtual agents on the graph, we further present <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">OmniEval</span>, a <b>multidimensional</b> evaluation framework that includes subtask-level evaluation, graph-based metrics, and comprehensive tests across 10 capabilities.
+          </p>
+          <p>
+            Our synthesized dataset contains <b>36k graph-structured tasks</b> across 20 scenarios, achieving a 91% human acceptance rate. Training on our graph-structured data shows that it can more efficiently guide agents compared to manually annotated data. We conduct multidimensional evaluations for various open-source and closed-source models, revealing their performance across various capabilities and paving the way for future advancements.
+          </p>
+        </div>        
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+<!-- DATASET SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 mathvista">
+    <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista">OmniBench</span>
+  </h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            <ul>
+            We comprehensively categorize image editing tasks into 5 groups based on different editing capabilities:
+            <li>(a) <b>Local Editing</b> which focuses on region-based editing (<span style="color: green;">green area</span>);
+            </li><li>(b) <b>Global Editing</b> which focuses on the full range of image rendering (<span style="color: yellow;">yellow area</span>);
+            </li><li>(c) <b>Camera Move Editing</b> which focuses on viewpoints changing instead of scenes (<span style="color: gray;">gray area</span>);
+          </li><li>(d) <b>Implicit Editing</b> which requires commonsense knowledge to complete complex editing (<span style="color: orange;">orange area</span>);
+          </li><li>(e) <b>Visual Editing</b> which encompasses additional visual inputs, addressing the requirements for multi-modal editing (<span style="color: blue;">blue area</span>).
+          </li></ul>
+          </p>
+          <div class="content has-text-centered">
+            <img src="static/images/mainfigure.png" alt="algebraic reasoning" width="100%"/>
+            Overview of <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">OmniBench</span>, a systematic benchmark with five-dimensional task complexity and bottom-up automatic task synthesis for generating structured task graphs. It evaluates ten virtual agent capabilities using high-quality graph-based data, ensuring scalable and realistic task assessments.
+            <br>
+          </div>
+          
+          <p>
+            In <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">OmniBench</span>, we combine five distinct groups of data, covering <b>25 editing types</b>, which will be released to help the community. It is worth noting that <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">OmniBench</span> is the only dataset that considers the <b>data bias</b> and introduces <b>counterfactual synthetic scenes</b> to balance the distribution of the dataset.
+          </p>          
+
+          <div class="content has-text-centered">
+            <img src="static/images/related.png" alt="arithmetic reasoning" width="100%"/><br>
+              Comparison of virtual agent benchmarks across environment, task, and evaluation dimensions. Unlike previous benchmarks, <b>OmniBench</b> features <b>automatic</b> task composition, <b>five-dimensional</b> task complexity, and a <b>10-capability</b> evaluation framework.
+          </div>
+
+          <p>
+            Subsequently, we invoke off-the-shelf T2I models to produce the initial images. In this manner, we enrich the original dataset by incorporating rare concept combinations, resulting in &#8764;700K high-quality and diverse image-caption pairs for the <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">OmniBench</span> dataset collection.
+          </p>
+          
+          <div class="content has-text-centered">
+            <img src="static/images/score.png" alt="data-overview" style="max-width: 70%;"/>
+            <p>
+              Data preparation details for <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span> dataset collection.<br/>
+            </p>
+        </div>
+        <center><h2 class="title is-3">Pipeline</h2></center>
+        <p>
+          We designed a bottom-up automated pipeline to synthesize tasks with controllable complexity. This pipeline consists of four processes:
+          <br>
+          (1) <b>Subtask Discovery</b>: First, we synthesize a series of simple subtask instructions from the explorable environment.
+          <br>
+          (2) <b>Subtask Synthesis</b>: Then, we iteratively synthesize subtask trajectories and evaluation functions.
+          <br>
+          (3) <b>Task Composition</b>: Next, the subtasks are combined into a task bottom-up.
+          <br>
+          (4) <b>Task Validation</b>: Finally, we validate the semantics of the tasks.
+        </p>
+        <div class="content has-text-centered">
+          <img src="static/images/pipeline.png" alt="data-overview" style="max-width: 100%;"/>
+          <p>
+            Bottom-up task synthesis pipeline of <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">OmniBench</span>.<br/>
+          </p>
+        </div>  
+        </div>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Cases in <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+          <span class="mathvista">OmniBench</span></h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/1-1.png" alt="qs-len" class="stats-image"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/1-2.png" alt="reasoning" class="stats-image"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/2-1.png" alt="reasoning" class="stats-image"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/2-2.png" alt="reasoning" class="stats-image"/>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Cases in <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+          <span class="mathvista">OmniBench</span>-Test</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/4.png" alt="qs-len" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/5.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/6.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/7.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/8.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/9.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/10.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/OmniBench/11.png" alt="reasoning" width="70%"/>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Model SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 mathvista">
+      <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+      <span class="mathvista">OmniEval</span>
+  </h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              To comprehensively analyze the limited capabilities of existing agents, we further propose <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/><span class="mathvista">OmniEval</span>, a graph-based multi-dimensional evaluation framework. 
+              We first introduce a graph-based evaluator with two novel metrics for fine-grained and diverse evaluation. 
+              Then, we describe the construction of test tasks designed to evaluate 10 distinct capabilities by constraining task complexity.
+            </p>
+            <div class="content has-text-centered">
+              <img src="static/images/OmniEval.png" alt="grade-lv" width="100%"/>
+              <p>
+                Comparison of mainstream virtual agent evaluation strategies with the evaluation strategy we propose.
+              </p>            
+            </div>
+          </div>
+          <!-- <h2 class="title is-3">Quantity Results</h2> -->
+          <!-- <div class="content has-text-justified">
+            <p>
+              We report the standard image editing results of <b><img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+                <span class="mathvista">OmniBench</span></b> and other baselines on <b>EMU-Edit Test</b> and <b>MagicBrush</b> benchmarks in the table. Based on the experimental results, we have summarized the following conclusions: 
+              <br><b><i>(i)</i></b> Our SD-1.5 with <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span>, which only changes the training data to <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span>, consistently demonstrates superior semantic performance in both edit alignment and content preservation compared to SOTA methods, even without additional mask supervision (0.872 for CLIP<sub>im</sub> and 0.285 for CLIP<sub>out</sub> on the EMU-Edit Test). It highlights <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span>'s effectiveness in mastering high-quality image editing, validating its <b>high-quality editing data with significant semantic alignment and underlying clear editing structure</b>.
+              <br><b><i>(ii)</i></b> Our 🎨<span class="mathvista">AnySD</span> model, trained on <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span> using the 🎨<span class="mathvista">AnySD</span> architecture, further surpasses SOTA methods in both semantic and visual similarity (0.872 of CLIP<sub>im</sub> on EMU-Edit Test and 0.881 of DINO on MagicBrush Test), setting new records on MagicBrush and Emu-Edit benchmarks. 
+              <br>This demonstrates <b>the superiority of 🎨<span class="mathvista">AnySD</span> in following editing instructions while preserving unchanged image elements</b>, thanks to its task-aware architecture that learns task-specific knowledge from the diverse editing types in <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span>, enhancing the model's cross-task editing capabilities.
+            </p>
+            <div class="content has-text-centered">
+              <img src="static/images/emu.png" alt="grade-lv" width="80%"/>
+              <p>
+                Comparison of methods on <b>EMU-Edit</b> and <b>MagicBrush</b> benchmark. We show performance improvements<br> over SOTA models of the same architecture, with only training data differences.
+              </p>
+            </div>
+
+            <p>
+              Below Table presents the results of the <b><img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+                <span class="mathvista">OmniBench</span>-Test</b> benchmark, where each instruction is designed to rigorously evaluate <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span>’s adaptability across a wider range of challenging editing scenarios. We provide further results of each editing category in Appendix <span style="color: red;">F</span>. It can be observed that 
+              <br><b><i>(i)</i></b> most baselines struggle to effectively handle more complex editing tasks that are rarely in standard benchmarks (0.190 v.s. 0.121 on average L1), especially for implicit editing that requires reasoning abilities. This illustrates <b>the importance of <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+                <span class="mathvista">OmniBench</span>-Test for evaluating the performance of editing models on complex tasks</b>.
+              <br><b><i>(ii)</i></b> Even for common editing tasks, state-of-the-art models show a significant decline in consistency performance on <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span>-Test (-3.5% on CLIP<sub>im</sub> and -19.2% on DINO of UltraEdit). This underscores <b>the limitations of existing benchmarks in evaluating multi-scene editing</b>.
+              <br><b><i>(iii)</i></b> In contrast, <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span> significantly outperforms SOTA methods across all editing categories, demonstrating its scalability and robustness in handling complex tasks across diverse scenarios.
+              <br><b><i>(iv)</i></b> Traditional methods often struggle to handle visual editing effectively due to additional visual inputs. In such cases, even when compared to Uni-ControlNet, which is pre-trained with diverse visual conditions, <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span> consistently performs better in visual editing tasks. It shows the efficacy of <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">OmniBench</span> in handling vision-conditioned editing instructions.
+            </p>
+            <div class="content has-text-centered">
+              <img src="static/images/anybench2.png" alt="grade-lv" width="86%"/>
+              <p>
+                Comparison of methods on <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+                <span class="mathvista">OmniBench</span>-Test benchmark
+              </p>            
+            </div>
+
+          </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reuslt SECTION -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 mathvista">
+            <span class="mathvista">More Quality Cases</span>
+  </h1>
+  </div>
+</section> -->
+<!-- <section class="section">
+  <div class="container">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Diversified Editing</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/1.png" alt="qs-len" width="77%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/2.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/0.png" alt="qs-len" width="78%"/>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Edit Cases in <img src="static/images/icon.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+          <span class="mathvista">OmniBench</span>-Test</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/1.png" alt="qs-len" width="75%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/2.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/3.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/4.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/5.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/6.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/7.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/8.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/9.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/10.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/11.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/anysd/12.png" alt="qs-len" width="85%"/>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Multi-Turns Edit Cases</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/3.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/4.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Comparison with More Models</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/5.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/6.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/7.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/cases/8.png" alt="qs-len" width="65%"/>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- RESULTS SECTION -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>
+<!-- @article{yu2024OmniBench,
+  title={OmniBench: Mastering Unified High-Quality Image Editing for Any Idea},
+  author={Yu, Qifan and Chow, Wei and Yue, Zhongqi and Pan, Kaihang and Wu, Yang and Wan, Xiaoyang and Li, Juncheng and Tang, Siliang and Zhang, Hanwang and Zhuang, Yueting},
+  journal={arXiv preprint arXiv:2411.15738},
+  year={2024}
+} -->
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+<p style="font-size: 14px;">
+  This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://physbench.github.io/">PhysBench</a>, licensed under a <a rel="license"
+                                              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+  Commons Attribution-ShareAlike 4.0 International License</a>.
+</p>
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
