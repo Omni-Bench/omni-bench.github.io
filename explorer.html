@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OmniBench Data Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .task-list { max-height: 80vh; overflow-y: auto; border-right: 1px solid #ccc; }
+    .task-item { padding: 10px 15px; cursor: pointer; }
+    .task-item:hover, .active-task { background-color: #e7f3ff; }
+    .observation-img { max-width: 100%; border-radius: 5px; }
+    pre.code-block { background-color: #272822; color: #f8f8f2; padding: 1em; border-radius: 5px; font-family: monospace; }
+    .step-indicator { text-align: center; margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="p-3 bg-primary text-white">
+      <h2>Data Explorer</h2>
+      <p><em>Below we show a small subset of <strong>OmniBench</strong> subtasks, which allows you to explore the data in detail.</em></p>
+    </div>
+
+    <div class="row mt-3">
+      <!-- Sidebar -->
+      <div class="col-md-3 bg-white task-list">
+        <h5 class="p-2 border-bottom">Workflow</h5>
+        <div id="taskList"></div>
+      </div>
+
+      <!-- Main content -->
+      <div class="col-md-9">
+        <div class="card p-3 mb-3">
+          <strong>Task ID:</strong> <span id="taskId">Please select a task</span>
+        </div>
+
+        <div class="card p-3 mb-3">
+          <strong>Instruction</strong>
+          <p id="instructionText">—</p>
+        </div>
+
+        <div>
+          <strong>Trajectory</strong>
+          <div id="trajectoryCarouselContainer" class="mt-3"></div>
+        </div>
+
+        <div class="card p-3 my-4">
+          <strong>Evaluation</strong>
+          <pre id="evaluationCode" class="code-block">
+def evaluate_task():
+    # TODO: Implement evaluation logic
+    return "Not implemented"
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tasks = [
+      {
+        id: 'task_001',
+        title: 'Task 1',
+        instruction: 'Open the file explorer and locate the "Documents" folder.',
+        trajectory: [
+          {
+            obs: 'images/step1.png',
+            action: 'Click on Start Menu',
+            description: 'User opens start menu.',
+            thought: 'Need to find File Explorer.',
+            status: 'Success'
+          },
+          {
+            obs: 'images/step2.png',
+            action: 'Type "File Explorer"',
+            description: 'Searching for application.',
+            thought: 'File Explorer should appear.',
+            status: 'Success'
+          },
+          {
+            obs: 'images/step3.png',
+            action: 'Press Enter',
+            description: 'Launch File Explorer.',
+            thought: 'Start navigating to folders.',
+            status: 'Success'
+          }
+        ],
+        evaluation: `
+def evaluate_task_001():
+    # Simulated accuracy metric
+    steps_completed = 3
+    total_steps = 3
+    return f"Accuracy: {steps_completed / total_steps:.2%}"
+        `
+      }
+    ];
+
+    const taskList = document.getElementById('taskList');
+    const taskId = document.getElementById('taskId');
+    const instructionText = document.getElementById('instructionText');
+    const trajectoryCarouselContainer = document.getElementById('trajectoryCarouselContainer');
+    const evaluationCode = document.getElementById('evaluationCode');
+
+    tasks.forEach((task, index) => {
+      const div = document.createElement('div');
+      div.textContent = task.title;
+      div.className = 'task-item';
+      div.addEventListener('click', () => {
+        document.querySelectorAll('.task-item').forEach(el => el.classList.remove('active-task'));
+        div.classList.add('active-task');
+        taskId.textContent = task.id;
+        instructionText.textContent = task.instruction;
+        evaluationCode.textContent = task.evaluation;
+        renderTrajectory(task.trajectory);
+      });
+      taskList.appendChild(div);
+    });
+
+    function renderTrajectory(steps) {
+      trajectoryCarouselContainer.innerHTML = `
+        <div id="trajectoryCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            ${steps.map((step, index) => `
+              <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <div class="card p-3">
+                  <h6>Step ${index + 1} of ${steps.length}</h6>
+                  <img src="${step.obs}" class="d-block w-100 observation-img mb-3" alt="Observation ${index + 1}">
+                  <p><strong>Action:</strong> ${step.action}</p>
+                  <p><strong>Description:</strong> ${step.description}</p>
+                  <p><strong>Thought:</strong> ${step.thought}</p>
+                  <p><strong>Status:</strong> ${step.status}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#trajectoryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#trajectoryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      `;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
